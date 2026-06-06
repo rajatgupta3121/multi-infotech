@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5 text-center">
+
+    <div class="card shadow-lg p-5 border-0 rounded-4">
+
+        <i class="fa-solid fa-user-shield fa-4x text-warning mb-4"></i>
+
+        <h2 class="fw-bold mb-3">
+
+            Admin Account Detected
+
+        </h2>
+
+        <p class="text-muted mb-4">
+
+            You are logged in as an administrator.
+
+        </p>
+
+        <a href="/admin"
+           class="btn btn-dark btn-lg rounded-pill px-5">
+
+            Go To Admin Dashboard
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

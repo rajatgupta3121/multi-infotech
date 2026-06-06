@@ -1,0 +1,503 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="contact-section py-5">
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <div class="text-center mb-5">
+
+            <span class="contact-badge">
+
+                CONTACT US
+
+            </span>
+
+            <h1 class="contact-title mt-3">
+
+                Let's Build Your Career Together
+
+            </h1>
+
+            <p class="contact-subtitle">
+
+                Have questions about admissions, fees,
+                certifications, placements, internships,
+                or career guidance? Our team is here to help.
+
+            </p>
+
+        </div>
+
+        <!-- FLASH MESSAGES -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+
+        <div class="toast-container position-fixed top-0 end-0 p-4">
+
+            {% for category, message in messages %}
+
+            <div class="toast show shadow-lg border-0">
+
+                <div class="toast-header">
+
+                    <i class="fa-solid fa-circle-check text-success me-2"></i>
+
+                    <strong class="me-auto">
+
+                        Success
+
+                    </strong>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="toast">
+                    </button>
+
+                </div>
+
+                <div class="toast-body">
+
+                    {{ message }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+        {% endwith %}
+
+        <div class="row g-4">
+
+            <!-- CONTACT INFO -->
+
+            <div class="col-lg-4">
+
+                <div class="contact-info-card">
+
+                    <h3>
+
+                        Get In Touch
+
+                    </h3>
+
+                    <p class="mb-4">
+
+                        Connect with our team for course
+                        counselling and career guidance.
+
+                    </p>
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <div>
+
+                            <h6>Call Us</h6>
+                            <p>+91 8922831903</p>
+
+                            <p>+91 9794660840</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <div>
+
+                            <h6>Email</h6>
+
+                            <p>mitioc1@gmail.com</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+
+                            <h6>Location</h6>
+
+                            <p><b>Main Branch -</b> Birahana Road ,Kanpur Nagar, Uttar Pradesh <br>
+                                <b>Second Branch - </b> Coolie Bajar Near Ghantaghar, Ghantaghar , Kanpur Nagar.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="https://wa.me/919794660840"
+                       target="_blank"
+                       class="btn btn-success w-100 mt-4">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Chat on WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <div class="col-lg-8">
+
+                <div class="contact-form-card">
+
+                    <h3 class="mb-4">
+
+                        Send Us A Message
+
+                    </h3>
+
+                    <form method="POST">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <div class="input-group custom-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        class="form-control modern-input"
+                                        name="name"
+                                        placeholder="Your Name"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <div class="input-group custom-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-envelope"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="email"
+                                        class="form-control modern-input"
+                                        name="email"
+                                        placeholder="Your Email"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <div class="input-group custom-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fa-solid fa-phone"></i>
+
+                                </span>
+
+                                <input
+                                    type="text"
+                                    class="form-control modern-input"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <textarea
+                                class="form-control modern-input"
+                                rows="6"
+                                name="message"
+                                placeholder="Write your message here...">
+                            </textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn submit-btn">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <!-- GOOGLE MAP -->
+
+                <div class="map-card mt-4">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.7443825971654!2d80.3511543745193!3d26.462540479293207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c476542416e77%3A0x18f019cb6c6672bb!2sMulti%20infotech%20Institute%20of%20computer%20technology!5e1!3m2!1sen!2sin!4v1780296858684!5m2!1sen!2sin"
+                        width="100%"
+                        height="320"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.contact-section{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f8fafc,
+        #ffffff
+    );
+
+}
+
+.contact-badge{
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+.contact-title{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+}
+
+.contact-subtitle{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+.contact-info-card{
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    height:100%;
+
+    box-shadow:
+    0 20px 60px rgba(37,99,235,.25);
+
+}
+
+.contact-item{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+.contact-item i{
+
+    font-size:24px;
+
+    margin-top:4px;
+
+}
+
+.contact-form-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.contact-form-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.custom-group{
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+.custom-group .input-group-text{
+
+    background:#f1f5f9;
+
+    border:none;
+
+    color:#4f46e5;
+
+}
+
+.modern-input{
+
+    border:none !important;
+
+    background:#f1f5f9;
+
+    padding:15px;
+
+}
+
+.modern-input:focus{
+
+    background:white;
+
+    box-shadow:none;
+
+}
+
+textarea.modern-input{
+
+    border-radius:12px;
+
+}
+
+.submit-btn{
+
+    background:#4f46e5;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 35px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+.submit-btn:hover{
+
+    background:#4338ca;
+
+    color:white;
+
+}
+
+.map-card{
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.toast{
+
+    min-width:350px;
+
+    border-radius:15px;
+
+}
+
+@media(max-width:768px){
+
+    .contact-title{
+
+        font-size:2rem;
+
+    }
+
+    .contact-form-card{
+
+        padding:25px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,944 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="admin-dashboard py-4 py-lg-5">
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="dashboard-header mb-5">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-8">
+
+                    <div class="welcome-card">
+
+                        <span class="dashboard-badge">
+                            🚀 Multi Infotech Admin Panel
+                        </span>
+
+                        <h1 class="fw-bold display-5 mt-4 mb-3">
+
+                            Welcome Back,
+
+                            <span class="gradient-text">
+                                {{ current_user.name }}
+                            </span>
+
+                            👋
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-0">
+
+                            Manage courses, enrollments, students,
+                            analytics and AI support system from one dashboard.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="dashboard-actions">
+
+                        <a href="{{ url_for('admin.add_course') }}"
+                           class="btn btn-primary btn-lg rounded-pill shadow-sm">
+
+                            <i class="fa-solid fa-plus me-2"></i>
+                            Add Course
+
+                        </a>
+
+                        <a href="{{ url_for('admin.admin_courses') }}"
+                           class="btn btn-dark btn-lg rounded-pill shadow-sm">
+
+                            <i class="fa-solid fa-layer-group me-2"></i>
+                            Manage Courses
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= STATS ================= -->
+
+        <div class="row g-4">
+
+            <!-- STUDENTS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stats-card bg-primary text-white">
+
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div class="stats-content">
+
+                        <p>Total Students</p>
+
+                        <h2>{{ total_students }}</h2>
+
+                        <span>Registered Students</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- LEADS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stats-card bg-success text-white">
+
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stats-content">
+
+                        <p>Total Leads</p>
+
+                        <h2>{{ total_leads }}</h2>
+
+                        <span>New Inquiries</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COURSES -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stats-card bg-warning text-dark">
+
+                    <div class="stats-icon dark-light">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <div class="stats-content">
+
+                        <p>Total Courses</p>
+
+                        <h2>{{ total_courses }}</h2>
+
+                        <span>Published Programs</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ENROLLMENTS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="stats-card bg-danger text-white">
+
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stats-content">
+
+                        <p>Total Enrollments</p>
+
+                        <h2>{{ total_enrollments }}</h2>
+
+                        <span>Admissions</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= QUICK ACTIONS ================= -->
+
+        <div class="row mt-5 g-4">
+
+            <!-- ADD COURSE -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="quick-card">
+
+                    <div class="quick-icon bg-primary">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+
+                    <h4 class="fw-bold mt-4">
+                        Add Course
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Create a new professional training program.
+
+                    </p>
+
+                    <a href="{{ url_for('admin.add_course') }}"
+                       class="btn btn-primary rounded-pill px-4">
+
+                        Create
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- COURSES -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="quick-card">
+
+                    <div class="quick-icon bg-success">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+
+                    <h4 class="fw-bold mt-4">
+                        Courses
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Edit and manage all institute courses.
+
+                    </p>
+
+                    <a href="{{ url_for('admin.admin_courses') }}"
+                       class="btn btn-success rounded-pill px-4">
+
+                        Manage
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- ENROLLMENTS -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="quick-card">
+
+                    <div class="quick-icon bg-warning">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <h4 class="fw-bold mt-4">
+                        Enrollments
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Monitor and manage student admissions.
+
+                    </p>
+
+                    <a href="{{ url_for('admin.admin_enrollments') }}"
+                       class="btn btn-warning rounded-pill px-4">
+
+                        View
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- AI CHATS -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="quick-card">
+
+                    <div class="quick-icon bg-danger">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <h4 class="fw-bold mt-4">
+                        AI Chats
+                    </h4>
+
+                    <p class="text-muted">
+
+                        Review chatbot interactions and conversations.
+
+                    </p>
+
+                    <a href="{{ url_for('admin.admin_ai_chats') }}"
+                       class="btn btn-danger rounded-pill px-4">
+
+                        Open
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= RECENT SECTION ================= -->
+
+        <div class="row mt-5 g-4">
+
+            <!-- RECENT ENROLLMENTS -->
+
+            <div class="col-lg-6">
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h4 class="fw-bold mb-0">
+                            Recent Enrollments
+                        </h4>
+
+                    </div>
+
+                    <div class="panel-body recent-scroll">
+
+                        {% if recent_enrollments %}
+
+                            {% for enrollment in recent_enrollments %}
+
+                            <div class="activity-box">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <strong>
+
+                                        {{ enrollment.full_name }}
+
+                                    </strong>
+
+                                    <span class="badge bg-success">
+
+                                        Enrolled
+
+                                    </span>
+
+                                </div>
+
+                                <p class="text-muted mt-2 mb-1">
+
+                                    {{ enrollment.course_name }}
+
+                                </p>
+
+                                <small class="text-muted">
+
+                                    {{ enrollment.phone }}
+
+                                </small>
+
+                            </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-box">
+
+                                <i class="fa-solid fa-user-slash fa-2x mb-3"></i>
+
+                                <p>No enrollments found.</p>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RECENT AI CHATS -->
+
+            <div class="col-lg-6">
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h4 class="fw-bold mb-0">
+                            Recent AI Chats
+                        </h4>
+
+                    </div>
+
+                    <div class="panel-body recent-scroll">
+
+                        {% if recent_chats %}
+
+                            {% for chat in recent_chats %}
+
+                            <div class="activity-box">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <strong class="text-capitalize">
+
+                                        {{ chat.role }}
+
+                                    </strong>
+
+                                    <span class="badge bg-primary">
+
+                                        AI
+
+                                    </span>
+
+                                </div>
+
+                                <p class="text-muted mt-2 mb-0">
+
+                                    {{ chat.message[:120] }}...
+
+                                </p>
+
+                            </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-box">
+
+                                <i class="fa-solid fa-robot fa-2x mb-3"></i>
+
+                                <p>No AI chats available.</p>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= COURSE TABLE ================= -->
+
+        <div class="dashboard-panel mt-5">
+
+            <div class="panel-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                <h4 class="fw-bold mb-0">
+                    Course Management
+                </h4>
+
+                <a href="{{ url_for('admin.add_course') }}"
+                   class="btn btn-primary rounded-pill px-4">
+
+                    <i class="fa-solid fa-plus me-2"></i>
+                    Add New
+
+                </a>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Course</th>
+                            <th>Duration</th>
+                            <th>Fees</th>
+                            <th>Level</th>
+                            <th class="text-center">Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for course in courses %}
+
+                        <tr>
+
+                            <td>
+                                #{{ course.id }}
+                            </td>
+
+                            <td>
+
+                                <div class="d-flex align-items-center gap-3">
+
+                                    <img src="{{ url_for('static', filename='uploads/' + (course.image if course.image else 'default-course.jpg')) }}"
+                                         class="course-thumb">
+
+                                    <div>
+
+                                        <h6 class="fw-bold mb-1">
+
+                                            {{ course.title }}
+
+                                        </h6>
+
+                                        <small class="text-muted">
+
+                                            {{ course.category }}
+
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                {{ course.duration }}
+
+                            </td>
+
+                            <td class="fw-bold text-success">
+
+                                ₹{{ course.fees }}
+
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-info text-dark">
+
+                                    {{ course.level }}
+
+                                </span>
+
+                            </td>
+
+                            <td class="text-center">
+
+                                <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+                                    <!-- EDIT -->
+
+                                    <a href="{{ url_for('admin.edit_course', id=course.id) }}"
+                                       class="btn btn-warning btn-sm rounded-pill px-3">
+
+                                        <i class="fa-solid fa-pen me-1"></i>
+                                        Edit
+
+                                    </a>
+
+                                    <!-- DELETE -->
+
+                                    <a href="{{ url_for('admin.delete_course', id=course.id) }}"
+                                       class="btn btn-danger btn-sm rounded-pill px-3"
+                                       onclick="return confirm('Delete this course?')">
+
+                                        <i class="fa-solid fa-trash me-1"></i>
+                                        Delete
+
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.admin-dashboard{
+
+    background:
+    linear-gradient(to bottom right,#f4f7fb,#eef3ff);
+
+    min-height:100vh;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome-card{
+
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.dashboard-badge{
+
+    background:#0d6efd;
+    color:white;
+    padding:10px 20px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.gradient-text{
+
+    background:linear-gradient(45deg,#0d6efd,#6610f2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.dashboard-actions{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-card{
+
+    border-radius:28px;
+    padding:28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:all 0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    overflow:hidden;
+    position:relative;
+}
+
+.stats-card::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:rgba(255,255,255,0.35);
+}
+
+.stats-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.stats-icon{
+
+    width:80px;
+    height:80px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+}
+
+.dark-light{
+
+    background:rgba(0,0,0,0.1);
+}
+
+.stats-content h2{
+
+    font-size:2.3rem;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.stats-content p{
+
+    margin-bottom:5px;
+    opacity:0.85;
+}
+
+.stats-content span{
+
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* =========================
+   QUICK CARDS
+========================= */
+
+.quick-card{
+
+    background:white;
+    border-radius:28px;
+    padding:35px 25px;
+    text-align:center;
+    transition:all 0.35s ease;
+    height:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    border:1px solid rgba(0,0,0,0.03);
+}
+
+.quick-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(13,110,253,0.12);
+}
+
+.quick-icon{
+
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    color:white;
+    font-size:34px;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.dashboard-panel{
+
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.panel-header{
+
+    padding:25px 30px;
+    border-bottom:1px solid #eee;
+}
+
+.panel-body{
+
+    padding:25px;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity-box{
+
+    background:#f8f9fa;
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.activity-box:hover{
+
+    background:#eef4ff;
+}
+
+.recent-scroll{
+
+    max-height:500px;
+    overflow-y:auto;
+}
+
+.recent-scroll::-webkit-scrollbar{
+
+    width:8px;
+}
+
+.recent-scroll::-webkit-scrollbar-thumb{
+
+    background:#d0d7e6;
+    border-radius:20px;
+}
+
+.empty-box{
+
+    text-align:center;
+    padding:60px 20px;
+    color:#999;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table th{
+
+    padding:18px;
+    font-weight:700;
+}
+
+.table td{
+
+    padding:18px;
+    vertical-align:middle;
+}
+
+.table tbody tr{
+
+    transition:0.3s;
+}
+
+.table tbody tr:hover{
+
+    background:#f8fbff;
+}
+
+.course-thumb{
+
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:15px;
+    border:3px solid #f1f1f1;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+
+    transition:0.3s ease;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.dashboard-panel,
+.quick-card,
+.stats-card,
+.welcome-card{
+
+    animation:fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .welcome-card{
+
+        padding:25px;
+        text-align:center;
+    }
+
+    .dashboard-actions{
+
+        margin-top:25px;
+    }
+
+    .stats-card{
+
+        flex-direction:column;
+        text-align:center;
+        gap:18px;
+    }
+
+    .stats-content h2{
+
+        font-size:2rem;
+    }
+
+    .quick-card{
+
+        padding:30px 20px;
+    }
+
+    .panel-header{
+
+        padding:20px;
+    }
+
+    .panel-body{
+
+        padding:20px;
+    }
+
+    .table{
+
+        min-width:850px;
+    }
+
+}
+
+</style>
+
+{% endblock %}

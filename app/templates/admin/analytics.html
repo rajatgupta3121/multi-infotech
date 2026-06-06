@@ -1,0 +1,700 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="analytics-dashboard py-5">
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="analytics-header mb-5">
+
+            <div class="header-card">
+
+                <div class="row align-items-center g-4">
+
+                    <div class="col-lg-8">
+
+                        <span class="analytics-badge">
+                            📊 Multi Infotech Analytics
+                        </span>
+
+                        <h1 class="fw-bold display-5 mt-4 mb-3">
+
+                            Institute Analytics Dashboard
+
+                        </h1>
+
+                        <p class="text-muted fs-5 mb-0">
+
+                            Monitor student growth, enrollments,
+                            courses, AI engagement and overall institute performance.
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-4 text-lg-end">
+
+                        <a href="{{ url_for('admin.admin_dashboard') }}"
+                           class="btn btn-dark btn-lg rounded-pill px-4 shadow-sm">
+
+                            <i class="fa-solid fa-arrow-left me-2"></i>
+                            Back to Dashboard
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= STATS ================= -->
+
+        <div class="row g-4">
+
+            <!-- STUDENTS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="analytics-card bg-primary text-white">
+
+                    <div class="analytics-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+
+                        <p class="mb-1">
+                            Total Students
+                        </p>
+
+                        <h2 class="fw-bold">
+                            {{ total_students }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COURSES -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="analytics-card bg-success text-white">
+
+                    <div class="analytics-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <div>
+
+                        <p class="mb-1">
+                            Total Courses
+                        </p>
+
+                        <h2 class="fw-bold">
+                            {{ total_courses }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ENROLLMENTS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="analytics-card bg-warning text-dark">
+
+                    <div class="analytics-icon dark-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+
+                        <p class="mb-1">
+                            Enrollments
+                        </p>
+
+                        <h2 class="fw-bold">
+                            {{ total_enrollments }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- AI CHATS -->
+
+            <div class="col-xl-3 col-md-6">
+
+                <div class="analytics-card bg-danger text-white">
+
+                    <div class="analytics-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div>
+
+                        <p class="mb-1">
+                            AI Messages
+                        </p>
+
+                        <h2 class="fw-bold">
+                            {{ total_messages }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= OVERVIEW ================= -->
+
+        <div class="row mt-5 g-4">
+
+            <!-- PERFORMANCE -->
+
+            <div class="col-lg-8">
+
+                <div class="analytics-panel h-100">
+
+                    <div class="panel-header">
+
+                        <h4 class="fw-bold mb-0">
+                            Institute Performance
+                        </h4>
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="performance-box">
+
+                            <div class="performance-item">
+
+                                <div class="d-flex justify-content-between mb-2">
+
+                                    <span>
+                                        Student Growth
+                                    </span>
+
+                                    <strong>
+                                        92%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress rounded-pill">
+
+                                    <div class="progress-bar bg-primary"
+                                         style="width:92%">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="performance-item">
+
+                                <div class="d-flex justify-content-between mb-2">
+
+                                    <span>
+                                        Course Engagement
+                                    </span>
+
+                                    <strong>
+                                        87%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress rounded-pill">
+
+                                    <div class="progress-bar bg-success"
+                                         style="width:87%">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="performance-item">
+
+                                <div class="d-flex justify-content-between mb-2">
+
+                                    <span>
+                                        Enrollment Conversion
+                                    </span>
+
+                                    <strong>
+                                        74%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress rounded-pill">
+
+                                    <div class="progress-bar bg-warning"
+                                         style="width:74%">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="performance-item">
+
+                                <div class="d-flex justify-content-between mb-2">
+
+                                    <span>
+                                        AI Assistant Usage
+                                    </span>
+
+                                    <strong>
+                                        96%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress rounded-pill">
+
+                                    <div class="progress-bar bg-danger"
+                                         style="width:96%">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- QUICK INFO -->
+
+            <div class="col-lg-4">
+
+                <div class="analytics-panel h-100">
+
+                    <div class="panel-header">
+
+                        <h4 class="fw-bold mb-0">
+                            Quick Insights
+                        </h4>
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="insight-box">
+
+                            <div class="insight-item">
+
+                                <i class="fa-solid fa-circle-check text-success"></i>
+
+                                <span>
+
+                                    Student registrations are increasing steadily.
+
+                                </span>
+
+                            </div>
+
+                            <div class="insight-item">
+
+                                <i class="fa-solid fa-circle-check text-primary"></i>
+
+                                <span>
+
+                                    AI assistant engagement is very high.
+
+                                </span>
+
+                            </div>
+
+                            <div class="insight-item">
+
+                                <i class="fa-solid fa-circle-check text-warning"></i>
+
+                                <span>
+
+                                    Course enrollments show positive growth.
+
+                                </span>
+
+                            </div>
+
+                            <div class="insight-item">
+
+                                <i class="fa-solid fa-circle-check text-danger"></i>
+
+                                <span>
+
+                                    Institute performance metrics are stable.
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= FUTURE ANALYTICS ================= -->
+
+        <div class="analytics-panel mt-5">
+
+            <div class="panel-header">
+
+                <h4 class="fw-bold mb-0">
+                    Upcoming Advanced Analytics
+                </h4>
+
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row g-4">
+
+                    <div class="col-md-3">
+
+                        <div class="future-card">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                Revenue Tracking
+                            </h5>
+
+                            <p class="text-muted">
+
+                                Analyze institute revenue and growth trends.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="future-card">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                Student Insights
+                            </h5>
+
+                            <p class="text-muted">
+
+                                Detailed student behavior and engagement reports.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="future-card">
+
+                            <i class="fa-solid fa-robot"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                AI Reports
+                            </h5>
+
+                            <p class="text-muted">
+
+                                AI chatbot usage and conversation analytics.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="future-card">
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                Smart Dashboard
+                            </h5>
+
+                            <p class="text-muted">
+
+                                Real-time analytics and dynamic visual reports.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+.analytics-dashboard{
+
+    background:
+    linear-gradient(to bottom right,#f4f7fb,#eef3ff);
+
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header-card{
+
+    background:white;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.analytics-badge{
+
+    background:#0d6efd;
+    color:white;
+    padding:10px 20px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* ================= STATS ================= */
+
+.analytics-card{
+
+    border-radius:28px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    transition:0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.analytics-icon{
+
+    width:75px;
+    height:75px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+
+.dark-icon{
+
+    background:rgba(0,0,0,0.08);
+}
+
+/* ================= PANELS ================= */
+
+.analytics-panel{
+
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.panel-header{
+
+    padding:25px 30px;
+    border-bottom:1px solid #eee;
+}
+
+.panel-body{
+
+    padding:30px;
+}
+
+/* ================= PERFORMANCE ================= */
+
+.performance-item{
+
+    margin-bottom:30px;
+}
+
+.progress{
+
+    height:12px;
+    background:#edf1f7;
+}
+
+.progress-bar{
+
+    border-radius:50px;
+}
+
+/* ================= INSIGHTS ================= */
+
+.insight-box{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.insight-item{
+
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+    padding:18px;
+    background:#f8f9fa;
+    border-radius:18px;
+    transition:0.3s;
+}
+
+.insight-item:hover{
+
+    background:#eef4ff;
+}
+
+/* ================= FUTURE ================= */
+
+.future-card{
+
+    background:#f8f9fa;
+    padding:30px 20px;
+    border-radius:25px;
+    text-align:center;
+    transition:0.35s ease;
+    height:100%;
+}
+
+.future-card:hover{
+
+    transform:translateY(-8px);
+    background:#eef4ff;
+}
+
+.future-card i{
+
+    font-size:42px;
+    color:#0d6efd;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+
+    transition:0.3s ease;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+}
+
+/* ================= ANIMATION ================= */
+
+.analytics-card,
+.analytics-panel,
+.future-card,
+.header-card{
+
+    animation:fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .header-card{
+
+        padding:25px;
+        text-align:center;
+    }
+
+    .analytics-card{
+
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .panel-header{
+
+        padding:20px;
+    }
+
+    .panel-body{
+
+        padding:20px;
+    }
+
+}
+
+</style>
+
+{% endblock %}

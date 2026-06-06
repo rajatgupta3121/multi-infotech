@@ -1,0 +1,323 @@
+<!-- PREMIUM AI CHATBOT -->
+<div id="chatbot-container">
+
+    <!-- CHAT TOGGLE BUTTON -->
+    <button id="chat-toggle">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <!-- CHATBOX -->
+    <div id="chatbox">
+
+        <!-- HEADER -->
+        <div id="chat-header">
+            <div>
+                <h5>Multi Infotech AI</h5>
+                <small>Online Now</small>
+            </div>
+
+            <button id="close-chat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- CHAT BODY -->
+        <div id="chat-body">
+            <div class="bot-message">
+                👋 Hello! Welcome to Multi Infotech Institute.
+                <br><br>
+                Ask me about:
+                <br>• Courses
+                <br>• Fees
+                <br>• Admissions
+            </div>
+        </div>
+
+        <!-- TYPING -->
+        <div id="typing" style="display:none;">
+            AI is typing...
+        </div>
+
+        <!-- INPUT -->
+        <div id="chat-input-area">
+            <input type="text" id="user-input" placeholder="Type your message...">
+
+            <button id="send-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<style>
+
+/* FLOAT BUTTON */
+
+#chat-toggle{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#chat-toggle:hover{
+    transform: scale(1.1);
+}
+
+/* CHATBOX */
+
+#chatbox{
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 360px;
+    height: 550px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    animation: chatbotOpen 0.3s ease;
+}
+
+/* HEADER */
+
+#chat-header{
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chat-header h5{
+    margin: 0;
+    font-weight: bold;
+}
+
+#chat-header small{
+    opacity: 0.8;
+}
+
+#close-chat{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* BODY */
+
+#chat-body{
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f5f7fb;
+}
+
+/* BOT MESSAGE */
+
+.bot-message{
+    background: white;
+    padding: 14px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    max-width: 85%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease;
+}
+
+/* USER MESSAGE */
+
+.user-message{
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+    color: white;
+    padding: 14px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    max-width: 85%;
+    animation: fadeIn 0.3s ease;
+}
+
+/* INPUT AREA */
+
+#chat-input-area{
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background: white;
+}
+
+#user-input{
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 12px 18px;
+    outline: none;
+}
+
+#send-btn{
+    margin-left: 10px;
+    border: none;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#send-btn:hover{
+    transform: scale(1.1);
+}
+
+/* TYPING */
+
+#typing{
+    padding: 10px 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+/* ANIMATIONS */
+
+@keyframes chatbotOpen{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    #chatbox{
+        width: 95%;
+        right: 2.5%;
+        height: 85vh;
+        bottom: 90px;
+    }
+
+}
+
+</style>
+
+<script>
+
+// OPEN CHAT
+
+const toggleBtn = document.getElementById("chat-toggle");
+const chatbox = document.getElementById("chatbox");
+const closeChat = document.getElementById("close-chat");
+
+toggleBtn.onclick = () => {
+    chatbox.style.display = "flex";
+}
+
+closeChat.onclick = () => {
+    chatbox.style.display = "none";
+}
+
+// SEND MESSAGE
+
+async function sendMessage(){
+
+    const input = document.getElementById("user-input");
+    const chatBody = document.getElementById("chat-body");
+    const typing = document.getElementById("typing");
+
+    const message = input.value.trim();
+
+    if(message === "") return;
+
+    // USER MESSAGE
+    chatBody.innerHTML += `
+        <div class="user-message">
+            ${message}
+        </div>
+    `;
+
+    input.value = "";
+
+    // AUTO SCROLL
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // SHOW TYPING
+    typing.style.display = "block";
+
+    // SEND TO BACKEND
+    const response = await fetch("/chatbot", {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    });
+
+    const data = await response.json();
+
+    // HIDE TYPING
+    typing.style.display = "none";
+
+    // BOT RESPONSE
+    chatBody.innerHTML += `
+        <div class="bot-message">
+            ${data.reply}
+        </div>
+    `;
+
+    // AUTO SCROLL
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// BUTTON SEND
+
+document.getElementById("send-btn")
+.addEventListener("click", sendMessage);
+
+// ENTER SEND
+
+document.getElementById("user-input")
+.addEventListener("keypress", function(e){
+
+    if(e.key === "Enter"){
+        sendMessage();
+    }
+
+});
+
+</script>

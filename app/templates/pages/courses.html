@@ -1,0 +1,535 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<section class="courses-banner text-center text-white d-flex align-items-center">
+
+    <div class="container-md">
+
+        <div data-aos="fade-up">
+
+            <span class="hero-badge">
+                🚀 Multi Infotech Institute
+            </span>
+
+            <h1 class="fs-2 fw-bold mt-3">
+
+                Explore Our Premium Courses
+
+            </h1>
+
+            <p class="mt-3 hero-text mx-auto" style="max-width:620px;">
+
+                Industry-focused IT programs with practical learning, live projects,
+                certifications, internship guidance, and career support.
+
+            </p>
+
+            <div class="mt-3 d-flex justify-content-center gap-2 flex-column flex-sm-row align-items-center">
+
+                <a href="#courses"
+                   class="btn btn-warning btn-sm px-4 py-2 rounded-pill shadow-sm">
+
+                    <i class="fa-solid fa-graduation-cap me-2"></i>
+                    Browse Courses
+
+                </a>
+
+                <a href="https://wa.me/919794660840"
+                   target="_blank"
+                   class="btn btn-outline-light btn-sm px-4 py-2 rounded-pill">
+
+                    <i class="fa-brands fa-whatsapp me-2"></i>
+                    WhatsApp Inquiry
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COURSES SECTION -->
+
+<section class="py-4 bg-light" id="courses">
+
+    <div class="container-md">
+
+        <!-- HEADING -->
+
+        <div class="text-center mb-4"
+             data-aos="fade-up">
+
+            <h2 class="fw-bold fs-3">
+
+                Professional Career Programs
+
+            </h2>
+
+            <p class="text-muted fs-6 mt-3 mx-auto" style="max-width:580px;">
+
+                Choose the right course and start building your future today.
+
+            </p>
+
+        </div>
+
+        <!-- COURSE GRID -->
+
+        <div class="row g-3">
+
+            {% for course in courses %}
+
+            <div class="col-xl-4 col-lg-6 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="card course-card border-0 h-100 overflow-hidden shadow-sm">
+
+                    <!-- IMAGE -->
+
+                    <div class="course-image-wrapper">
+
+                        <img src="{% if course.image %}
+                                  {{ url_for('static', filename='uploads/' + course.image) }}
+                                  {% else %}
+                                  {{ url_for('static', filename='uploads/default-course.jpg') }}
+                                  {% endif %}"
+                             alt="{{ course.title }}"
+                             class="card-img-top course-img">
+
+                        <div class="course-overlay">
+
+                            <span class="badge rounded-pill bg-primary px-3 py-2">
+
+                                {{ course.category if course.category else 'Professional Course' }}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BODY -->
+
+                    <div class="card-body d-flex flex-column p-3">
+
+                        <!-- TITLE -->
+
+                        <h4 class="fw-bold mb-2 fs-5">
+
+                            {{ course.title }}
+
+                        </h4>
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="text-muted flex-grow-1 course-description mb-3" style="font-size:0.94rem;">
+
+                            {{ course.description[:130] }}...
+
+                        </p>
+
+                        <!-- DETAILS -->
+
+                        <div class="course-details mb-3">
+
+                            <div class="detail-item">
+
+                                <div class="detail-icon bg-primary-subtle">
+
+                                    <i class="fa-solid fa-clock text-primary"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <small class="text-muted d-block">
+
+                                        Duration
+
+                                    </small>
+
+                                    <strong>
+
+                                        {{ course.duration }}
+
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <div class="detail-item mt-3">
+
+                                <div class="detail-icon bg-success-subtle">
+
+                                    <i class="fa-solid fa-indian-rupee-sign text-success"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <small class="text-muted d-block">
+
+                                        Course Fees
+
+                                    </small>
+
+                                    <strong class="text-success">
+
+                                        ₹{{ course.fees }}
+
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- BUTTONS -->
+
+                        <div class="d-grid gap-2 mt-auto">
+
+                            {% if current_user.is_authenticated %}
+
+                            <a href="/enroll/{{ course.id }}"
+class="btn btn-dark rounded-pill py-2" style="font-size:0.95rem;">
+
+                                <i class="fa-solid fa-book-open me-2"></i>
+
+                                Enroll Now
+
+                            </a>
+
+                            {% else %}
+
+                            <a href="/login"
+class="btn btn-primary rounded-pill py-2" style="font-size:0.95rem;">
+
+                                <i class="fa-solid fa-right-to-bracket me-2"></i>
+
+                                Login To Enroll
+
+                            </a>
+
+                            {% endif %}
+
+                            <a href="https://wa.me/919794660840"
+                               target="_blank"
+                               class="btn btn-success rounded-pill py-2" style="font-size:0.95rem;">
+
+                                <i class="fa-brands fa-whatsapp me-2"></i>
+
+                                WhatsApp Inquiry
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <!-- EMPTY -->
+
+            <div class="col-12">
+
+                <div class="empty-course-box text-center">
+
+                    <i class="fa-solid fa-book-open-reader fa-2x mb-3"></i>
+
+                    <h3 class="fw-bold">
+
+                        No Courses Available
+
+                    </h3>
+
+                    <p class="text-muted">
+
+                        New professional programs will be added soon.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA SECTION -->
+
+<section class="cta-section py-4 text-white">
+
+    <div class="container text-center"
+         data-aos="fade-up">
+
+        <h2 class="fs-2 fw-bold">
+
+            Build Your Career With Multi Infotech 🚀
+
+        </h2>
+
+        <p class="mt-4 mx-auto cta-text" style="font-size:0.96rem;">
+
+            Learn from experts, work on real-world projects,
+            and become job-ready with our advanced IT programs.
+
+        </p>
+
+        <div class="mt-3">
+
+            <a href="/register"
+               class="btn btn-warning px-4 py-2 rounded-pill shadow-sm">
+
+                <i class="fa-solid fa-user-plus me-2"></i>
+
+                Register Now
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CUSTOM CSS -->
+
+<style>
+
+body{
+
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.courses-banner{
+
+    min-height:56vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.75),
+    rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070');
+
+    background-size:cover;
+    background-position:center;
+    padding:64px 0;
+}
+
+.hero-badge{
+
+    background:rgba(255,255,255,0.14);
+
+    border:1px solid rgba(255,255,255,0.18);
+
+    padding:7px 16px;
+
+    border-radius:40px;
+
+    backdrop-filter:blur(10px);
+
+    font-weight:600;
+    font-size:0.88rem;
+}
+
+.hero-text{
+
+    max-width:700px;
+
+    opacity:0.92;
+    font-size:0.97rem;
+}
+
+/* COURSE CARD */
+
+.course-card{
+
+    border-radius:18px;
+
+    transition:0.3s ease;
+
+    background:white;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.course-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,0.10);
+}
+
+.course-image-wrapper{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.course-img{
+
+    height:150px;
+
+    width:100%;
+
+    object-fit:cover;
+
+    transition:0.35s ease;
+}
+
+.course-card:hover .course-img{
+
+    transform:scale(1.03);
+}
+
+.course-overlay{
+
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+}
+
+.course-description{
+
+    line-height:1.6;
+    font-size:0.95rem;
+}
+
+/* DETAILS */
+
+.course-details{
+
+    background:#f8f9fa;
+
+    padding:12px;
+
+    border-radius:16px;
+}
+
+.detail-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.detail-icon{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:15px;
+}
+
+/* EMPTY */
+
+.empty-course-box{
+
+    background:white;
+
+    padding:55px 24px;
+
+    border-radius:24px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* CTA */
+
+.cta-section{
+
+    background:
+    linear-gradient(135deg,#0d6efd,#6610f2);
+}
+
+.cta-text{
+
+    max-width:700px;
+    font-size:0.96rem;
+}
+
+/* BUTTONS */
+
+.btn{
+
+    transition:0.25s ease;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .courses-banner{
+
+        min-height:auto;
+
+        padding:70px 0;
+    }
+
+    .fs-1{
+
+        font-size:2.2rem !important;
+    }
+
+    .fs-2{
+
+        font-size:1.75rem !important;
+    }
+
+    .course-img{
+
+        height:150px;
+    }
+
+    .course-details{
+
+        padding:14px;
+    }
+
+    .cta-section{
+
+        padding:3rem 0;
+    }
+
+}
+
+</style>
+
+{% endblock %}

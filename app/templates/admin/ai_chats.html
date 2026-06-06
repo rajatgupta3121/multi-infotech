@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1 class="fw-bold mb-4">
+        AI Chat Conversations
+    </h1>
+
+    <div class="card shadow border-0 p-4 rounded-4">
+
+        {% if recent_chats %}
+
+            {% for chat in recent_chats %}
+
+            <div class="border rounded-4 p-3 mb-3">
+
+                <h6 class="fw-bold">
+                    {{ chat.role }}
+                </h6>
+
+                <p class="mb-0 text-muted">
+                    {{ chat.message }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="text-muted">
+                No AI chats available.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,728 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="enrollment-section py-5">
+
+    <div class="container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="text-center mb-5">
+
+            <span class="badge enroll-badge mb-3">
+                Admissions Open 2026
+            </span>
+
+            <h1 class="fw-bold display-5">
+
+                Enroll in
+                <span class="text-primary">
+                    {{ course.title }}
+                </span>
+
+            </h1>
+
+            <p class="text-muted lead">
+
+                Start your professional journey with industry-focused training
+                and placement assistance.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- LEFT SIDE FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="enroll-card">
+
+                    <div class="d-flex align-items-center mb-4">
+
+                        <div class="enroll-icon me-3">
+
+                            <i class="fa-solid fa-user-graduate"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="fw-bold mb-1">
+                                Admission Form
+                            </h3>
+
+                            <p class="text-muted mb-0">
+                                Fill your details carefully
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <form method="POST">
+
+                        <div class="row">
+
+                            <!-- FULL NAME -->
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Full Name *
+
+                                </label>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                    </span>
+
+                                    <input type="text"
+                                           class="form-control"
+                                           value="{{ current_user.name }}"
+                                           disabled>
+
+                                </div>
+
+                            </div>
+
+                            <!-- EMAIL -->
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Email Address *
+
+                                </label>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-envelope"></i>
+
+                                    </span>
+
+                                    <input type="email"
+                                           class="form-control"
+                                           value="{{ current_user.email }}"
+                                           disabled>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <!-- PHONE -->
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Phone Number *
+
+                                </label>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-phone"></i>
+
+                                    </span>
+
+                                    <input type="text"
+                                           name="phone"
+                                           class="form-control"
+                                           placeholder="Enter your phone number"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+                            <!-- QUALIFICATION -->
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label fw-semibold">
+
+                                    Qualification
+
+                                </label>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa-solid fa-graduation-cap"></i>
+
+                                    </span>
+
+                                    <input type="text"
+                                           name="qualification"
+                                           class="form-control"
+                                           placeholder="Your qualification">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- COURSE -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+
+                                Selected Course
+
+                            </label>
+
+                            <div class="input-group custom-input">
+
+                                <span class="input-group-text">
+
+                                    <i class="fa-solid fa-book-open"></i>
+
+                                </span>
+
+                                <input type="text"
+                                       class="form-control"
+                                       value="{{ course.title }}"
+                                       disabled>
+
+                            </div>
+
+                        </div>
+
+                        <!-- BATCH -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+
+                                Preferred Batch Timing
+
+                            </label>
+
+                            <select class="form-select custom-select"
+                                    name="batch_time">
+
+                                <option value="">
+                                    Choose timing
+                                </option>
+
+                                <option>
+                                    Morning Batch
+                                </option>
+
+                                <option>
+                                    Afternoon Batch
+                                </option>
+
+                                <option>
+                                    Evening Batch
+                                </option>
+
+                                <option>
+                                    Weekend Batch
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- MESSAGE -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+
+                                Message / Notes
+
+                            </label>
+
+                            <textarea class="form-control custom-textarea"
+                                      rows="5"
+                                      name="message"
+                                      placeholder="Any additional information..."></textarea>
+
+                        </div>
+
+                        <!-- COURSE DETAILS -->
+
+                        <div class="course-info-box mb-4">
+
+                            <div class="row text-center">
+
+                                <div class="col-4">
+
+                                    <h5 class="fw-bold text-primary">
+
+                                        ₹{{ course.price if course.price else '15000' }}
+
+                                    </h5>
+
+                                    <small class="text-muted">
+                                        Course Fee
+                                    </small>
+
+                                </div>
+
+                                <div class="col-4">
+
+                                    <h5 class="fw-bold text-success">
+
+                                        {{ course.duration if course.duration else '6 Months' }}
+
+                                    </h5>
+
+                                    <small class="text-muted">
+                                        Duration
+                                    </small>
+
+                                </div>
+
+                                <div class="col-4">
+
+                                    <h5 class="fw-bold text-warning">
+
+                                        100%
+
+                                    </h5>
+
+                                    <small class="text-muted">
+                                        Support
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- SUBMIT BUTTON -->
+
+                        <button class="btn enroll-btn w-100">
+
+                            <i class="fa-solid fa-paper-plane me-2"></i>
+
+                            Submit Application
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="col-lg-5">
+
+                <!-- ADMISSION PROCESS -->
+
+                <div class="side-card mb-4">
+
+                    <h4 class="fw-bold mb-4">
+
+                        Admission Process
+
+                    </h4>
+
+                    <div class="process-step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <p>
+                            Fill out the admission form
+                        </p>
+
+                    </div>
+
+                    <div class="process-step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <p>
+                            Our team will contact you within 24 hours
+                        </p>
+
+                    </div>
+
+                    <div class="process-step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <p>
+                            Visit our institute for document verification
+                        </p>
+
+                    </div>
+
+                    <div class="process-step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <p>
+                            Complete the fee payment
+                        </p>
+
+                    </div>
+
+                    <div class="process-step">
+
+                        <div class="step-number">
+                            5
+                        </div>
+
+                        <p>
+                            Start your learning journey!
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- BENEFITS -->
+
+                <div class="side-card mb-4">
+
+                    <h4 class="fw-bold mb-4">
+
+                        Why Apply Now?
+
+                    </h4>
+
+                    <ul class="benefit-list">
+
+                        <li>
+
+                            <i class="fa-regular fa-circle-check"></i>
+
+                            Limited seats per batch
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-regular fa-circle-check"></i>
+
+                            Early bird discounts available
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-regular fa-circle-check"></i>
+
+                            Free demo class for applicants
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-regular fa-circle-check"></i>
+
+                            Flexible payment options
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-regular fa-circle-check"></i>
+
+                            Placement assistance included
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- HELP CARD -->
+
+                <div class="help-card">
+
+                    <h4 class="fw-bold mb-3">
+
+                        Need Help?
+
+                    </h4>
+
+                    <p class="mb-4">
+
+                        Contact us for any admission-related queries
+
+                    </p>
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        +91 9821231903
+
+                    </div>
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        multiinfotech@gmail.com
+
+                    </div>
+
+                    <div class="contact-item">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        WhatsApp Support Available
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+body{
+    background:#f5f7fb;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.enrollment-section{
+    min-height:100vh;
+}
+
+.enroll-badge{
+    background:rgba(13,110,253,0.1);
+    color:#0d6efd;
+    padding:10px 22px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:14px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.enroll-card,
+.side-card{
+    background:white;
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.06);
+    border:1px solid rgba(0,0,0,0.04);
+}
+
+.help-card{
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+    color:white;
+    border-radius:30px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(13,110,253,0.25);
+}
+
+/* =========================
+   ICON
+========================= */
+
+.enroll-icon{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:28px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.custom-input .input-group-text{
+    border-radius:16px 0 0 16px;
+    background:#f5f7fb;
+    border:1px solid #dbe4f0;
+    color:#0d6efd;
+}
+
+.custom-input .form-control{
+    border-radius:0 16px 16px 0;
+    border:1px solid #dbe4f0;
+    padding:14px;
+    box-shadow:none;
+}
+
+.custom-input .form-control:focus{
+    border-color:#0d6efd;
+}
+
+.custom-select,
+.custom-textarea{
+    border-radius:16px;
+    border:1px solid #dbe4f0;
+    padding:14px;
+    box-shadow:none;
+}
+
+.custom-select:focus,
+.custom-textarea:focus{
+    border-color:#0d6efd;
+    box-shadow:none;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.enroll-btn{
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+    color:white;
+    border:none;
+    border-radius:18px;
+    padding:16px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.enroll-btn:hover{
+    transform:translateY(-3px);
+    color:white;
+    box-shadow:0 15px 30px rgba(13,110,253,0.25);
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-step{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.step-number{
+    min-width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#0d6efd;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.process-step p{
+    margin:0;
+    color:#444;
+    font-weight:500;
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefit-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.benefit-list li{
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:500;
+    color:#444;
+}
+
+.benefit-list i{
+    color:#0d6efd;
+}
+
+/* =========================
+   HELP CARD
+========================= */
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+    font-weight:500;
+}
+
+/* =========================
+   COURSE INFO
+========================= */
+
+.course-info-box{
+    background:#f8faff;
+    border-radius:20px;
+    padding:22px;
+    border:1px dashed #cddcff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .enroll-card,
+    .side-card,
+    .help-card{
+        padding:25px;
+        border-radius:22px;
+    }
+
+    .display-5{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+{% endblock %}

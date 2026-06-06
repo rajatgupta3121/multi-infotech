@@ -1,0 +1,1976 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+
+    <div class="container">
+
+        <!-- TOP CONTENT -->
+
+        <div class="hero-content text-center">
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-rocket"></i>
+                Industry Ready IT Training Platform
+
+            </div>
+
+            <h1 class="hero-title">
+
+                Build Your Future In
+
+                <span class="gradient-text">
+                    Technology
+                </span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                Master Full Stack Development, Artificial Intelligence,
+                Data Science, UI/UX, Cloud and Industry-Oriented Skills
+                with Live Training, Real Projects and Career Support.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/courses" class="btn hero-primary-btn">
+
+                    <i class="fa-solid fa-book-open"></i>
+                    Explore Courses
+
+                </a>
+
+                <a href="https://wa.me/919794660840"
+                   class="btn hero-whatsapp-btn">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- STATS -->
+
+        <div class="hero-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>500+</h3>
+
+                    <p>Students Trained</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>25+</h3>
+
+                    <p>Professional Courses</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>95%</h3>
+
+                    <p>Placement Success</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- IMAGE SECTION -->
+
+        <div class="hero-image-wrapper">
+
+            <img src="{{ url_for('static', filename='images/hero.png') }}"
+                 class="hero-image"
+                 alt="Students Learning">
+
+            <!-- Floating Cards -->
+
+            <div class="floating-card card-1">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+                <div>
+
+                    <strong>Live Coding</strong>
+
+                    <small>Build Real Projects</small>
+
+                </div>
+
+            </div>
+
+            <div class="floating-card card-2">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <div>
+
+                    <strong>AI Learning</strong>
+
+                    <small>Future Ready Skills</small>
+
+                </div>
+
+            </div>
+
+            <div class="floating-card card-3">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <div>
+
+                    <strong>Placement Support</strong>
+
+                    <small>Career Assistance</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<style>
+    /* ================= HERO ================= */
+
+.hero-section{
+
+    position:relative;
+    padding:60px 0 40px;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top left,#e8edff,#ffffff);
+
+}
+
+/* ================= CONTENT ================= */
+
+.hero-content{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.hero-title{
+
+    font-size:5rem;
+
+    font-weight:800;
+
+    line-height:1.05;
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+
+}
+
+.gradient-text{
+
+    display:block;
+
+    background:linear-gradient(
+    90deg,
+    #6c63ff,
+    #3b82f6
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-description{
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:1.2rem;
+
+    color:#64748b;
+
+}
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-primary-btn{
+
+    background:linear-gradient(
+    90deg,
+    #6c63ff,
+    #3b82f6
+    );
+
+    color:white;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-weight:600;
+
+}
+
+.hero-primary-btn:hover{
+
+    color:white;
+
+}
+
+.hero-whatsapp-btn{
+
+    background:white;
+
+    border:2px solid #22c55e;
+
+    color:#22c55e;
+
+    padding:15px 35px;
+
+    border-radius:15px;
+
+    font-weight:600;
+
+}
+
+/* ================= STATS ================= */
+
+.hero-stats{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin:50px 0;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    min-width:280px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.06);
+
+}
+
+.stat-icon{
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    font-size:1.5rem;
+
+}
+
+.stat-card h3{
+
+    margin:0;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+}
+
+.stat-card p{
+
+    margin:0;
+
+    color:#64748b;
+
+}
+
+/* ================= IMAGE ================= */
+
+.hero-image-wrapper{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.hero-image{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.12);
+
+}
+
+/* ================= FLOATING CARDS ================= */
+
+.floating-card{
+
+    position:absolute;
+
+    background:white;
+
+    padding:15px 20px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+}
+
+.floating-card i{
+
+    font-size:1.4rem;
+
+    color:#4f46e5;
+
+}
+
+.floating-card strong{
+
+    display:block;
+
+}
+
+.floating-card small{
+
+    color:#64748b;
+
+}
+
+.card-1{
+
+    top:12%;
+    left:3%;
+
+}
+
+.card-2{
+
+    top:15%;
+    right:3%;
+
+}
+
+.card-3{
+
+    bottom:-20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero-title{
+
+    font-size:3rem;
+
+}
+
+.hero-description{
+
+    font-size:1rem;
+
+}
+
+.hero-image{
+
+    height:300px;
+
+}
+
+.floating-card{
+
+    transform:scale(.8);
+
+}
+
+.card-3{
+
+    left:50%;
+
+}
+
+}
+</style>
+
+
+<!-- ================= POPULAR COURSES ================= -->
+
+<section class="courses-section py-5">
+
+    <div class="container">
+
+        <div class="section-header text-center mb-5"
+             data-aos="fade-up">
+
+            <span class="section-subtitle">
+                POPULAR COURSES
+            </span>
+
+            <h2 class="section-title">
+
+                Trending Career Programs
+
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for course in courses[:3] %}
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="fade-up">
+
+                <div class="modern-course-card">
+
+                    <div class="course-image-wrapper">
+
+                        <img src="{% if course.image %}
+                                  {{ url_for('static', filename='uploads/' + course.image) }}
+                                  {% else %}
+                                  {{ url_for('static', filename='images/default-course.jpg') }}
+                                  {% endif %}"
+                             class="modern-course-image">
+
+                    </div>
+
+                    <div class="p-3">
+
+                        <span class="course-badge">
+
+                            {{ course.category or "Professional Course" }}
+
+                        </span>
+
+                        <h4 class="fw-bold mt-3">
+
+                            {{ course.title }}
+
+                        </h4>
+
+                        <p class="text-muted">
+
+                            {{ course.description[:120] }}...
+
+                        </p>
+
+                        <div class="course-meta">
+
+                            <div>
+
+                                <i class="fa-solid fa-clock text-primary"></i>
+                                {{ course.duration }}
+
+                            </div>
+
+                            <div class="price-tag">
+
+                                ₹{{ course.fees }}
+
+                            </div>
+
+                        </div>
+
+                        <a href="/courses"
+                           class="btn explore-btn w-100 mt-4">
+
+                            Explore Course
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+<section class="hero-slideshow">
+
+    <div id="mainSlider"
+         class="carousel slide carousel-fade"
+         data-bs-ride="carousel"
+         data-bs-interval="3000"
+         data-bs-pause="false">
+
+        <!-- INDICATORS -->
+
+        <div class="carousel-indicators">
+
+            <button type="button"
+                    data-bs-target="#mainSlider"
+                    data-bs-slide-to="0"
+                    class="active">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#mainSlider"
+                    data-bs-slide-to="1">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#mainSlider"
+                    data-bs-slide-to="2">
+            </button>
+
+        </div>
+
+        <!-- SLIDES -->
+
+        <div class="carousel-inner">
+
+            <!-- SLIDE 1 -->
+
+            <div class="carousel-item active">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070"
+                     class="d-block w-100 slider-image">
+
+                <div class="carousel-caption">
+
+                    <h1>
+
+                        Learn Modern Technology
+
+                    </h1>
+
+                    <p>
+
+                        Full Stack • AI • Data Science • Cloud
+
+                    </p>
+
+                    <a href="/courses"
+                       class="btn slider-btn">
+
+                        Explore Courses
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SLIDE 2 -->
+
+            <div class="carousel-item">
+
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071"
+                     class="d-block w-100 slider-image">
+
+                <div class="carousel-caption">
+
+                    <h1>
+
+                        Industry Ready Training
+
+                    </h1>
+
+                    <p>
+
+                        Real Projects + Placement Support
+
+                    </p>
+
+                    <a href="/register"
+                       class="btn slider-btn">
+
+                        Join Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SLIDE 3 -->
+
+            <div class="carousel-item">
+
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070"
+                     class="d-block w-100 slider-image">
+
+                <div class="carousel-caption">
+
+                    <h1>
+
+                        Build Your Career
+
+                    </h1>
+
+                    <p>
+
+                        Learn from Experts and Grow Faster
+
+                    </p>
+
+                    <a href="/contact"
+                       class="btn slider-btn">
+
+                        Contact Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CONTROLS -->
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#mainSlider"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#mainSlider"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+</section>
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section py-4">
+
+    <div class="container-fluid px-lg-5 px-3">
+
+        <!-- SECTION HEADER -->
+
+        <div class="section-header text-center mb-4"
+             data-aos="fade-up">
+
+            <span class="section-subtitle">
+
+                WHY CHOOSE US
+
+            </span>
+
+            <h2 class="section-title mt-2">
+
+                Professional Learning Experience
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Industry-focused practical training programs
+                designed to build real skills and career success.
+
+            </p>
+
+        </div>
+
+        <!-- FEATURES GRID -->
+
+        <div class="row g-3">
+
+            <!-- FEATURE 1 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-primary">
+
+                        <i class="fa-solid fa-user-tie"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Expert Faculty
+
+                        </h4>
+
+                        <p>
+
+                            Learn from industry professionals
+                            with years of practical experience.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FEATURE 2 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-success">
+
+                        <i class="fa-solid fa-certificate"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Certified Courses
+
+                        </h4>
+
+                        <p>
+
+                            Government recognized and
+                            industry-approved certifications.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FEATURE 3 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-warning">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Flexible Timings
+
+                        </h4>
+
+                        <p>
+
+                            Multiple batches and schedules
+                            designed for students and professionals.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FEATURE 4 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-danger">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            100% Job Support
+
+                        </h4>
+
+                        <p>
+
+                            Placement assistance, resume building
+                            and interview preparation support.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FEATURE 5 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-info">
+
+                        <i class="fa-solid fa-book-open-reader"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Updated Curriculum
+
+                        </h4>
+
+                        <p>
+
+                            Latest industry-relevant technologies
+                            and modern learning modules.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FEATURE 6 -->
+
+            <div class="col-lg-4 col-md-6"
+                 data-aos="zoom-in">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon bg-dark">
+
+                        <i class="fa-solid fa-laptop-code"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Hands-on Training
+
+                        </h4>
+
+                        <p>
+
+                            Practical implementation through
+                            real-world projects and live sessions.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= GALLERY SLIDER ================= -->
+
+<section class="gallery-section py-3">
+
+    <div class="container-fluid px-2 px-lg-3">
+
+        <!-- HEADER -->
+
+        <div class="text-center mb-3"
+             data-aos="fade-up">
+
+            <span class="section-subtitle">
+
+                OUR GALLERY
+
+            </span>
+
+            <h2 class="gallery-title">
+
+                Explore Our Campus
+
+            </h2>
+
+            <p class="gallery-description">
+
+                Labs, classrooms, training and activities
+
+            </p>
+
+        </div>
+
+        <!-- CAROUSEL -->
+
+        <div id="gallerySlider"
+             class="carousel slide carousel-fade"
+             data-bs-ride="carousel"
+             data-bs-interval="1800"
+             data-bs-pause="false"
+             data-bs-touch="true">
+
+            <!-- INDICATORS -->
+
+            <div class="carousel-indicators">
+
+                <button type="button"
+                        data-bs-target="#gallerySlider"
+                        data-bs-slide-to="0"
+                        class="active">
+                </button>
+
+                <button type="button"
+                        data-bs-target="#gallerySlider"
+                        data-bs-slide-to="1">
+                </button>
+
+            </div>
+
+            <!-- SLIDES -->
+
+            <div class="carousel-inner">
+
+                <!-- SLIDE 1 -->
+
+                <div class="carousel-item active">
+
+                    <div class="row g-2 justify-content-center">
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/lab1.jpeg') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Lab Classes
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/lab2.jpeg') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Online Exams
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/training.webp') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Training
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 2 -->
+
+                <div class="carousel-item">
+
+                    <div class="row g-2 justify-content-center">
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/lab3.jpeg') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Smart Classes
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/training 2.jpeg') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Computer Labs
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-6">
+
+                            <div class="gallery-card">
+
+                                <img src="{{ url_for('static', filename='images/activities.jpeg') }}"
+                                     class="gallery-image">
+
+                                <div class="gallery-overlay">
+
+                                    <h6>
+
+                                        Training
+
+                                    </h6>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CSS ================= -->
+
+<style>
+
+.gallery-section{
+
+    background:#f8fafc;
+
+    overflow:hidden;
+
+    padding:20px 0;
+}
+
+.gallery-title{
+
+    font-size:1.9rem;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    margin-bottom:4px;
+}
+
+.gallery-description{
+
+    font-size:13px;
+
+    color:#64748b;
+}
+
+.gallery-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    background:white;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+.gallery-image{
+
+    width:100%;
+
+    height:170px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.gallery-card:hover .gallery-image{
+
+    transform:scale(1.05);
+}
+
+.gallery-overlay{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:10px;
+
+    background:linear-gradient(
+    transparent,
+    rgba(0,0,0,0.75)
+    );
+}
+
+.gallery-overlay h6{
+
+    color:white;
+
+    margin:0;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+/* SMOOTH SLIDE */
+
+.carousel-item{
+
+    transition:
+    transform 1s ease-in-out,
+    opacity 1s ease-in-out;
+}
+
+/* INDICATORS */
+
+.carousel-indicators{
+
+    bottom:-35px;
+}
+
+.carousel-indicators button{
+
+    width:8px !important;
+
+    height:8px !important;
+
+    border-radius:50%;
+
+    background:#2563eb !important;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .gallery-title{
+
+        font-size:1.4rem;
+    }
+
+    .gallery-image{
+
+        height:130px;
+    }
+
+    .gallery-overlay h6{
+
+        font-size:11px;
+    }
+
+}
+
+</style>
+
+<!-- ================= JS ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const gallerySlider =
+    document.querySelector('#gallerySlider');
+
+    new bootstrap.Carousel(gallerySlider, {
+
+        interval:1800,
+        ride:'carousel',
+        pause:false,
+        wrap:true,
+        touch:true
+
+    });
+
+});
+
+</script>
+
+</div>
+<!-- GOOGLE REVIEWS -->
+
+<section class="reviews-section py-5">
+
+    <div class="container">
+
+    
+
+        <!-- GOOGLE REVIEW WIDGET -->
+
+        <div class="review-widget">
+
+            <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-4391d0fd-50e1-4ecc-9591-c7bba693c591" data-elfsight-app-lazy></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CTA SECTION ================= -->
+
+<section class="final-cta">
+
+    <div class="container">
+
+        <div class="cta-card text-center"
+             data-aos="zoom-in">
+
+            <span class="section-subtitle text-warning">
+
+                START TODAY
+
+            </span>
+
+            <h2>
+
+                Upgrade Your Skills
+                With Multi Infotech
+
+            </h2>
+
+            <p>
+
+                Join professional training programs and
+                accelerate your career in technology.
+
+            </p>
+
+            <div class="d-flex justify-content-center flex-wrap gap-3 mt-4"> 
+
+                <a href="/register" style="background:#6586e2"
+                   class="btn hero-secondary-btn">
+
+                    Register Now
+
+                </a>
+
+                <a href="/courses"
+                   class="btn hero-primary-btn">
+
+                    View Courses
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CSS ================= -->
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+body{
+    background:#f5f7fb;
+    overflow-x:hidden;
+    font-size:15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height:1.2;
+    
+}
+
+section{
+    overflow:hidden;
+}
+
+
+
+/* ================= SECTION COMMON ================= */
+
+.features-section,
+.courses-section,
+.reviews-section,
+.final-cta{
+
+    padding:30px 0;
+}
+
+.section-header{
+
+    margin-bottom:28px !important;
+}
+
+.section-subtitle{
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    font-weight:700;
+
+    color:#2563eb;
+}
+
+.section-title{
+
+    font-size:1.6rem;
+
+    font-weight:800;
+
+    color:#111827;
+
+    margin-top:8px;
+}
+
+.section-description{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+    max-width:560px;
+
+    margin:auto;
+}
+
+/* ================= FEATURE BOX ================= */
+
+
+.features-section{
+
+    background:#f8fafc;
+
+    padding:40px 0;
+}
+
+.section-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#111827;
+}
+
+.section-description{
+
+    max-width:650px;
+
+    color:#6b7280;
+
+    font-size:14px;
+}
+
+.feature-box{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    height:100%;
+
+    transition:0.3s;
+
+    border:1px solid rgba(0,0,0,0.05);
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.04);
+}
+
+.feature-box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 30px rgba(37,99,235,0.12);
+}
+
+.feature-icon{
+
+    width:58px;
+
+    height:58px;
+
+    min-width:58px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:22px;
+}
+
+.feature-box h4{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    color:#111827;
+}
+
+.feature-box p{
+
+    margin:0;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    color:#6b7280;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .features-section{
+
+        padding:25px 0;
+    }
+
+    .section-title{
+
+        font-size:1.5rem;
+    }
+
+    .feature-box{
+
+        padding:14px;
+
+        gap:12px;
+    }
+
+    .feature-icon{
+
+        width:50px;
+        height:50px;
+
+        min-width:50px;
+
+        font-size:18px;
+    }
+
+    .feature-box h4{
+
+        font-size:15px;
+    }
+
+    .feature-box p{
+
+        font-size:12px;
+    }
+
+}
+
+
+/* ================= COURSE CARD ================= */
+
+.modern-course-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:auto;
+
+    transition:0.3s;
+
+    height:100%;
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.modern-course-card:hover{
+
+    transform:translateY(-3px);
+}
+
+.modern-course-image{
+
+    width:100%;
+
+    height:130px;
+
+    object-fit:cover;
+}
+
+.modern-course-card .p-3{
+
+    padding:1rem;
+}
+
+.modern-course-card h4{
+
+    font-size:1rem;
+
+    margin-top:0.75rem;
+}
+
+.modern-course-card p{
+
+    font-size:0.93rem;
+
+    margin-bottom:0.8rem;
+}
+
+.course-badge{
+
+    background:#e0e7ff;
+
+    color:#4338ca;
+
+    padding:4px 8px;
+
+    border-radius:24px;
+
+    font-size:9px;
+
+    font-weight:600;
+}
+
+.course-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:8px;
+
+    font-size:10.5px;
+}
+
+.explore-btn{
+
+    color:#16a34a;
+
+    font-size:15px;
+
+    font-weight:700;
+}
+
+.explore-btn{
+
+    background:#111827;
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:7px;
+
+    font-size:11px;
+}
+
+.explore-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+}
+
+/* ================= SLIDER ================= */
+
+.hero-slideshow{
+
+    margin-top:10px;
+}
+
+.slider-image{
+
+    height:48vh;
+
+    object-fit:cover;
+
+    filter:brightness(50%);
+}
+
+.carousel-caption{
+
+    bottom:44%;
+
+    transform:translateY(50%);
+}
+
+.carousel-caption h1{
+
+    font-size:1.9rem;
+
+    font-weight:800;
+}
+
+.carousel-caption p{
+
+    font-size:13px;
+
+    margin:8px 0 14px;
+}
+
+.slider-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:8px 18px;
+
+    font-size:12px;
+}
+
+.carousel-indicators button{
+
+    width:10px !important;
+
+    height:10px !important;
+
+    border-radius:50%;
+}
+
+/* ================= REVIEWS ================= */
+
+.review-widget{
+
+    border-radius:18px;
+
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    height:60%;
+    margin:0px;
+}
+
+/* ================= CTA ================= */
+
+.cta-card{
+
+    background:
+    linear-gradient(
+    135deg,
+    #647599,
+    #1e3a8a
+    );
+
+    border-radius:20px;
+
+    padding:30px 18px;
+
+    color:white;
+}
+
+.cta-card h2{
+
+    font-size:1.55rem;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.cta-card p{
+
+    max-width:520px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,0.75);
+
+    font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .hero-section{
+
+        min-height:auto;
+
+        padding:24px 0;
+    }
+
+    .hero-title{
+
+        font-size:1.75rem;
+    }
+
+    .hero-description{
+
+        font-size:13px;
+    }
+
+    .hero-main-image{
+
+        height:24px;
+
+        margin-top:20px;
+    }
+
+    .floating-card{
+
+        display:none;
+    }
+
+    .slider-image{
+
+        height:38vh;
+    }
+
+    .carousel-caption h1{
+
+        font-size:1.4rem;
+    }
+
+    .carousel-caption p{
+
+        font-size:12px;
+    }
+
+    .section-title{
+
+        font-size:1.4rem;
+    }
+
+    .cta-card h2{
+
+        font-size:1.3rem;
+    }
+
+    .stat-card{
+
+        width:100%;
+    }
+}
+
+</style>
+
+{% endblock %}

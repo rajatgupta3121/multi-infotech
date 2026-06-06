@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- PAGE HEADER -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+                Student Enrollments
+            </h2>
+
+            <p class="text-muted mb-0">
+                Manage all student admissions and enrollments.
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('admin.admin_dashboard') }}"
+           class="btn btn-dark rounded-pill px-4">
+
+            <i class="fa-solid fa-arrow-left"></i>
+            Dashboard
+
+        </a>
+
+    </div>
+
+    <!-- ENROLLMENT TABLE -->
+
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th class="text-center">Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% if enrollments %}
+
+                        {% for enrollment in enrollments %}
+
+                        <tr>
+
+                            <td>
+
+                                #{{ enrollment.id }}
+
+                            </td>
+
+                            <td>
+
+                                <div>
+
+                                    <h6 class="fw-bold mb-1">
+
+                                        {{ enrollment.full_name }}
+
+                                    </h6>
+
+                                    <small class="text-muted">
+
+                                        {{ enrollment.qualification }}
+
+                                    </small>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                {{ enrollment.course_name }}
+
+                            </td>
+
+                            <td>
+
+                                {{ enrollment.phone }}
+
+                            </td>
+
+                            <td>
+
+                                {{ enrollment.email }}
+
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-success">
+
+                                    {{ enrollment.status }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                {{ enrollment.created_at.strftime('%d %b %Y') if enrollment.created_at else 'N/A' }}
+
+                            </td>
+
+                            <td class="text-center">
+
+                                <a href="{{ url_for('admin.delete_enrollment', id=enrollment.id) }}"
+                                   class="btn btn-danger btn-sm rounded-pill px-3"
+                                   onclick="return confirm('Delete this enrollment?')">
+
+                                    <i class="fa-solid fa-trash"></i>
+                                    Delete
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <tr>
+
+                            <td colspan="8" class="text-center py-5">
+
+                                <i class="fa-solid fa-user-slash fa-3x text-muted mb-3"></i>
+
+                                <p class="text-muted mb-0">
+
+                                    No enrollments found.
+
+                                </p>
+
+                            </td>
+
+                        </tr>
+
+                    {% endif %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

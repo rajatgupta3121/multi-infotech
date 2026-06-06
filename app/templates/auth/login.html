@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center">
+
+            <!-- LEFT SECTION -->
+
+            <div class="col-lg-6 d-none d-lg-block">
+
+                <div data-aos="fade-right">
+
+                    <h1 class="fw-bold mb-4"
+                        style="font-size: 3rem;">
+
+                        Welcome To
+                        Multi Infotech 🚀
+
+                    </h1>
+
+                    <p class="lead text-muted mb-4">
+
+                        Login to access your dashboard,
+                        courses, certificates,
+                        AI assistant, and institute services.
+
+                    </p>
+
+                    <div class="d-flex gap-3 mb-4">
+
+                        <div class="badge bg-primary p-3 fs-6">
+
+                            Student Portal
+
+                        </div>
+
+                        <div class="badge bg-dark p-3 fs-6">
+
+                            Admin Portal
+
+                        </div>
+
+                        <div class="badge bg-success p-3 fs-6">
+
+                            AI LMS
+
+                        </div>
+
+                    </div>
+
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                         class="img-fluid"
+                         style="max-width: 450px;">
+
+                </div>
+
+            </div>
+
+            <!-- LOGIN CARD -->
+
+            <div class="col-lg-5 col-md-8">
+
+                <div class="card border-0 shadow-lg p-4 p-md-5"
+                     data-aos="zoom-in"
+                     style="border-radius: 25px;">
+
+                    <!-- ICON -->
+
+                    <div class="text-center mb-4">
+
+                        <div class="mb-3">
+
+                            <i class="fa-solid fa-user-shield"
+                               style="font-size: 60px;
+                                      color: #0d6efd;">
+                            </i>
+
+                        </div>
+
+                        <!-- TITLE -->
+
+                        <h2 class="fw-bold">
+
+                            Login To Continue
+
+                        </h2>
+
+                        <p class="text-muted">
+
+                            Student • Admin • Staff Portal
+
+                        </p>
+
+                    </div>
+
+                    <!-- FORM -->
+
+                    <form method="POST">
+
+                        <!-- EMAIL -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+
+                                Email Address
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fa-solid fa-envelope"></i>
+
+                                </span>
+
+                                <input type="email"
+                                       class="form-control form-control-lg"
+                                       name="email"
+                                       placeholder="Enter your email"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+                        <!-- PASSWORD -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+
+                                Password
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                </span>
+
+                                <input type="password"
+                                       class="form-control form-control-lg"
+                                       name="password"
+                                       placeholder="Enter your password"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+                        <!-- OPTIONS -->
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <div class="form-check">
+
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="remember">
+
+                                <label class="form-check-label"
+                                       for="remember">
+
+                                    Remember Me
+
+                                </label>
+
+                            </div>
+
+                            <a href="#"
+                               class="text-decoration-none small">
+
+                                Forgot Password?
+
+                            </a>
+
+                        </div>
+
+                        <!-- LOGIN BUTTON -->
+
+                        <button class="btn btn-primary btn-lg w-100 shadow-sm">
+
+                            <i class="fa-solid fa-right-to-bracket"></i>
+
+                            Login
+
+                        </button>
+
+                    </form>
+
+                    <!-- REGISTER -->
+
+                    <div class="text-center mt-4">
+
+                        <p class="text-muted">
+
+                            Don't have an account?
+
+                            <a href="/register"
+                               class="fw-semibold text-decoration-none">
+
+                                Register Now
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                    <!-- DIVIDER -->
+
+                    <hr class="my-4">
+
+                    <!-- QUICK INFO -->
+
+                    <div class="text-center">
+
+                        <small class="text-muted">
+
+                            Secure Authentication • AI Powered Learning • Modern LMS
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
