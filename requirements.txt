@@ -3,6 +3,7 @@ Flask-SQLAlchemy==3.1.1
 Flask-Login==0.6.3
 Flask-Migrate==4.1.0
 Flask-Cors==5.0.0
+
 SQLAlchemy==2.0.38
 gunicorn==23.0.0
 psycopg2-binary==2.9.10
@@ -14,7 +15,7 @@ google-generativeai
 
 numpy==1.26.4
 pandas==2.2.3
-scikit-learn==1.5.2
+scikit-learn==1.5.1
 scipy==1.13.1
 joblib==1.4.2
 
@@ -42,7 +43,7 @@ lxml==5.3.0
 
 Pillow==11.1.0
 
-python-dateutil
-tqdm
-PyYAML
-typing_extensions
+python-dateutil==2.9.0.post0
+tqdm==4.67.1
+PyYAML==6.0.2
+typing_extensions==4.12.2
